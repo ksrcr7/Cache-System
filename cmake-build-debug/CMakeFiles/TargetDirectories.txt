@@ -1,0 +1,3 @@
+C:/Users/ASUS/Desktop/C++/Cache-System/cmake-build-debug/CMakeFiles/Cache_System.dir
+C:/Users/ASUS/Desktop/C++/Cache-System/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ASUS/Desktop/C++/Cache-System/cmake-build-debug/CMakeFiles/rebuild_cache.dir
