@@ -1,0 +1,16 @@
+# Build directories
+build/
+cmake-build-*/
+cmake-build-debug/
+cmake-build-release/
+
+# CLion
+.idea/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+
+# Logs
+*.log
