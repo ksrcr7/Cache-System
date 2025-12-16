@@ -7,7 +7,7 @@
 
 class LRUCache{
 public:
-    LRUCache(int);
+    explicit LRUCache(int);
     bool get(int,int&);
     void put(int,int);
     int size()const;
