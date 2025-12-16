@@ -20,6 +20,7 @@ private:
     std::list<Node> cacheList;
     std::unordered_map<int, ListIt> HashMap;
 
+
 };
 
 
