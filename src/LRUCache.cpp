@@ -40,3 +40,11 @@ void LRUCache::put(int key, int value) {
     HashMap[key] = cacheList.begin();
 
 }
+
+int LRUCache::size() const {
+    return cacheList.size();
+}
+
+int LRUCache::capacity() const {
+    return capacity_;
+}
