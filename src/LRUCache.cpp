@@ -1,4 +1,5 @@
 #include "LRUCache.h"
+#include "LRUPolicy.h"
 #include <stdexcept>
 
 bool LRUCache::get(int key, int &outValue) {
@@ -17,6 +18,7 @@ LRUCache::LRUCache(int capacity) {
         throw std::invalid_argument("Capacity must be at least 1.");
     }
     capacity_ = capacity;
+    policy_ = std::make_unique<LRUPolicy>();
 
 }
 
