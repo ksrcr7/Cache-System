@@ -21,21 +21,19 @@ LRUCache::LRUCache(int capacity) {
 }
 
 void LRUCache::put(int key, int value) {
-    auto it = HashMap.find(key);
-    if(it != HashMap.end()){
-        auto update = it->second;
-        update->second = value;
-        cacheList.splice(cacheList.begin(),cacheList,update);
-        return;
+    auto it  = storage.find(key);
+    if(it != storage.end()){
+        storage[key] = value;
+        policy_->onPut(key);
     }
-    if(cacheList.size() == capacity_){
-        int oldKey = cacheList.back().first;
-        HashMap.erase(oldKey);
-        cacheList.pop_back();
-    }
+    if(storage.size() == capacity_){
+        int victim = policy_->evictKey();
+        storage.erase(victim);
+        policy_->onErase(victim);
 
-    cacheList.emplace_front(key,value);
-    HashMap[key] = cacheList.begin();
+    }
+    storage.emplace(key,value);
+    policy_->onPut(key);
 
 }
 
