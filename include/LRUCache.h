@@ -1,8 +1,9 @@
 #ifndef CACHE_SYSTEM_LRUCACHE_H
 #define CACHE_SYSTEM_LRUCACHE_H
 
+#include "IEvictionPolicy.h"
 #include <unordered_map>
-#include <list>
+#include <memory>
 
 
 class LRUCache{
@@ -15,10 +16,8 @@ public:
 
 private:
     int capacity_;
-    using Node = std::pair<int,int>;
-    using ListIt = std::list<Node>::iterator;
-    std::list<Node> cacheList;
-    std::unordered_map<int, ListIt> HashMap;
+    std::unordered_map<int,int> storage;
+    std::unique_ptr<IEvictionPolicy> policy_;
 
 
 };
