@@ -44,3 +44,13 @@ int LRUCache::size() const {
 int LRUCache::capacity() const {
     return capacity_;
 }
+
+bool LRUCache::erase(int key) {
+    auto it = storage.find(key);
+    if(it != storage.end()){
+        storage.erase(it);
+        policy_->onErase(key);
+        return true;
+    }
+    return false;
+}

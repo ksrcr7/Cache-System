@@ -11,6 +11,7 @@ public:
     explicit LRUCache(int);
     bool get(int,int&);
     void put(int,int);
+    bool erase(int);
     int size()const;
     int capacity()const;
 
