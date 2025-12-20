@@ -38,7 +38,7 @@ void LRUCache::put(int key, int value) {
 }
 
 int LRUCache::size() const {
-    return cacheList.size();
+    return storage.size();
 }
 
 int LRUCache::capacity() const {
