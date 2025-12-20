@@ -51,3 +51,17 @@ TEST(LRUCacheTest,GetMakesKeyMRU){
     EXPECT_TRUE(cache.get(1, v));
     EXPECT_TRUE(cache.get(3, v));
 }
+
+TEST(LRUCacheTest,Erase){
+    LRUCache cache(2);
+    int v = 0;
+    cache.put(1,10);
+    cache.put(2,20);
+    cache.get(1,v);
+    cache.erase(1);
+    cache.put(3,30);
+
+    EXPECT_FALSE(cache.get(1,v));
+    EXPECT_TRUE(cache.get(2,v));
+    EXPECT_TRUE(cache.get(3,v));
+}
